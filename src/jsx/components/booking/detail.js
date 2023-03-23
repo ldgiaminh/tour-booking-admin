@@ -40,6 +40,8 @@ const BookingDetail = (props) => {
     }
   };
 
+  console.log(bookings);
+
   return (
     <>
       {props.showLoading && <Loader />}
@@ -50,12 +52,17 @@ const BookingDetail = (props) => {
               <div className="row">
                 <div className="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">
                   {bookings.payments &&
-                    bookings.payments.map((img) => {
-                      <img
-                        className="img-fluid"
-                        src={img.paymentImage}
-                        alt=""
-                      />;
+                    Array.isArray(bookings.payments) &&
+                    bookings.payments.map((img, index) => {
+                      return (
+                        <div key={index}>
+                          <img
+                            className="img-fluid"
+                            src={img.paymentImage}
+                            alt=""
+                          />
+                        </div>
+                      );
                     })}
                 </div>
 
@@ -103,6 +110,7 @@ const BookingDetail = (props) => {
                       </div> */}
                     </div>
                     {bookings.payments &&
+                      Array.isArray(bookings.payments) &&
                       bookings.payments.map((pay) => {
                         return pay.status === 1 ? (
                           <div className="shopping-cart mt-3">
