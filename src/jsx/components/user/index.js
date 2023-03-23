@@ -178,7 +178,7 @@ const User = (props) => {
                                     <div>
                                       <h4 className="mb-0 mt-1">
                                         <Link
-                                          to={`./${users.id}-mentor-detail`}
+                                          to={`./${users.id}-users-detail`}
                                           className="text-black"
                                         >
                                           {users.firstName}
@@ -211,9 +211,9 @@ const User = (props) => {
                                   </div>
                                 </td>
 
-                                <td>
+                                {/* <td>
                                   <DropdownBlog id={users.id} />
-                                </td>
+                                </td> */}
                               </tr>
                             );
                           })}

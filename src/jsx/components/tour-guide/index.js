@@ -186,7 +186,7 @@ const TourGuide = (props) => {
                                     <div>
                                       <h4 className="mb-0 mt-1">
                                         <Link
-                                          to={`./${trans.id}-mentor-detail`}
+                                          to={`./${trans.id}-tour-guides-detail`}
                                           className="text-black"
                                         >
                                           {trans.tourGuideName}
@@ -230,9 +230,9 @@ const TourGuide = (props) => {
                                     <h5>{trans.tour.tourName}</h5>
                                   </div>
                                 </td>
-                                <td>
+                                {/* <td>
                                   <DropdownBlog id={trans.id} />
-                                </td>
+                                </td> */}
                               </tr>
                             );
                           })}

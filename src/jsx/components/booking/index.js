@@ -186,9 +186,7 @@ const Booking = (props) => {
                                           to={`./${pays.id}-booking-detail`}
                                           className="text-black"
                                         >
-                                          {pays.customer.firstName +
-                                            " " +
-                                            pays.customer.lastName}
+                                          {pays.customer.firstName}
                                         </Link>
                                       </h4>
                                     </div>

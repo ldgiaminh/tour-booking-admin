@@ -32,6 +32,8 @@ import TourGuideEdit from "./components/tour-guide/edit";
 import TourDetail from "./components/tour/detail";
 import TourCreate from "./components/tour/create";
 import BookingDetail from "./components/booking/detail";
+import UserDetail from "./components/user/detail";
+import TourGuideDetail from "./components/tour-guide/detail";
 
 const Markup = () => {
   const { menuToggle } = useContext(ThemeContext);
@@ -54,11 +56,12 @@ const Markup = () => {
 
     //User
     { url: "users", component: User },
+    { url: ":id-users-detail", component: UserDetail },
 
     //Tour Guide
     { url: "tour-guides", component: TourGuide },
     { url: "tour-guides-create", component: TourGuideCreate },
-    { url: "tour-guides-create", component: TourGuideEdit },
+    { url: ":id-tour-guides-detail", component: TourGuideDetail },
 
     //Transportations
     { url: "transportations", component: Transportations },

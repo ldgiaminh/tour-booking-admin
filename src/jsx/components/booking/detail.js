@@ -71,10 +71,7 @@ const BookingDetail = (props) => {
                     {/*Product details*/}
                     <div className="new-arrival-content pr">
                       <h4>
-                        {bookings.customer &&
-                          bookings.customer.firstName +
-                            " " +
-                            bookings.customer.lastName}
+                        {bookings.customer && bookings.customer.firstName}
                       </h4>
                       {/* <div className="d-table mb-2">
                         <p className="price float-left d-block">$325.00</p>
