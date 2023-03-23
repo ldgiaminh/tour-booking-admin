@@ -233,9 +233,9 @@ const Tour = (props) => {
                                   ))}
                                 </div>
                               </td>
-                              <td>
+                              {/* <td>
                                 <DropdownBlog />
-                              </td>
+                              </td> */}
                             </tr>
                           );
                         })}

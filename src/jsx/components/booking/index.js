@@ -149,12 +149,6 @@ const Booking = (props) => {
                   </span>
                 </div>
               </div>
-              <Link
-                to={"/create-subject"}
-                className="btn btn-primary mb-xxl-0 mb-4"
-              >
-                <i className="far fa-plus-square me-2"></i>Create New
-              </Link>
             </div>
             <Tab.Content>
               <Tab.Pane eventKey="All">
@@ -240,9 +234,9 @@ const Booking = (props) => {
                                     </div>
                                   ))}
                                 </td>
-                                <td>
+                                {/* <td>
                                   <DropdownBlog id={pays.id} />
-                                </td>
+                                </td> */}
                               </tr>
                             );
                           })}
@@ -263,7 +257,7 @@ const Booking = (props) => {
                       >
                         <Link
                           className="paginate_button previous disabled"
-                          to="/subject"
+                          to="/bookings"
                           onClick={() =>
                             activePag.current > 0 &&
                             onClick(activePag.current - 1)
@@ -275,7 +269,7 @@ const Booking = (props) => {
                           {paggination.map((number, i) => (
                             <Link
                               key={i}
-                              to="/subject"
+                              to="/bookings"
                               className={`paginate_button  ${
                                 activePag.current === i ? "current" : ""
                               } `}
@@ -288,7 +282,7 @@ const Booking = (props) => {
 
                         <Link
                           className="paginate_button next"
-                          to="/subject"
+                          to="/bookings"
                           onClick={() =>
                             activePag.current + 1 < paggination.length &&
                             onClick(activePag.current + 1)

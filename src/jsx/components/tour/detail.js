@@ -87,13 +87,37 @@ const TourDetail = (props) => {
                   </p>
                   <h4 className="mb-0 card-title">{tours.tourDuration} Days</h4>
                 </div>
-                <div>
-                  <p className="mb-2">
-                    <i className="far fa-calendar-minus scale3 me-3"></i>
-                    Booking Date
-                  </p>
-                  <h4 className="mb-0 card-title">Oct 25th - 28th, 2020</h4>
-                </div>
+              </div>
+              {tours &&
+                tours.tourDetails &&
+                tours.tourDetails.map((d) => (
+                  <>
+                    <div className="me-5 mb-sm-0 mb-3">
+                      <p className="mb-2">
+                        <i className="far fa-calendar-minus scale3 me-3"></i>
+                        Start Date
+                      </p>
+                      <h4 className="mb-0 card-title">
+                        {new Date(d.startDate).toLocaleDateString()}
+                      </h4>
+                    </div>
+                    <div>
+                      <p className="mb-2">
+                        <i className="far fa-calendar-minus scale3 me-3"></i>
+                        Start Date
+                      </p>
+                      <h4 className="mb-0 card-title">
+                        {new Date(d.endDate).toLocaleDateString()}
+                      </h4>
+                    </div>
+                  </>
+                ))}
+              <div className="mt-4">
+                <h4 className="card-title me-auto">Description</h4>
+                {tours.tourDetails &&
+                  tours.tourDetails.map((t) => (
+                    <span>{t.tourDescription}</span>
+                  ))}
               </div>
             </div>
           </div>

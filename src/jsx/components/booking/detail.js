@@ -117,7 +117,7 @@ const BookingDetail = (props) => {
                         ) : pay.status === 2 ? (
                           <div className="filtaring-area my-3">
                             <div className="size-filter">
-                              <h4 className="m-b-15">Confirmed</h4>
+                              <h4 className="m-b-15 text-success">CONFIRMED</h4>
                             </div>
                           </div>
                         ) : (

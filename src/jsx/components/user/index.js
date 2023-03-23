@@ -158,8 +158,8 @@ const User = (props) => {
                         <tr role="row">
                           <th>Full Name</th>
                           <th>Email</th>
-                          <th>Phone</th>
                           <th>City</th>
+                          <th>Phone</th>
                           <th className="bg-none"></th>
                         </tr>
                       </thead>
@@ -181,9 +181,7 @@ const User = (props) => {
                                           to={`./${users.id}-mentor-detail`}
                                           className="text-black"
                                         >
-                                          {users.firstName +
-                                            " " +
-                                            users.lastName}
+                                          {users.firstName}
                                         </Link>
                                       </h4>
                                     </div>
