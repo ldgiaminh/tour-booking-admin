@@ -37,18 +37,19 @@ export function logout(history) {
   };
 }
 
-export function loginAction(email, password, history) {
+export function loginAction(username, password, history) {
   return (dispatch) => {
-    login(email, password)
+    login(username, password)
       .then((response) => {
-        saveTokenInLocalStorage(response.data);
-        runLogoutTimer(dispatch, response.data.expiresIn * 1000, history);
-        dispatch(loginConfirmedAction(response.data));
+        console.log(response.data.data);
+        saveTokenInLocalStorage(response.data.data);
+        runLogoutTimer(dispatch, response.data.data.expiresIn * 10000, history);
+        dispatch(loginConfirmedAction(response.data.data));
         history.push("/bookings");
       })
       .catch((error) => {
         //console.log(error);
-        const errorMessage = formatError(error.response.data);
+        const errorMessage = formatError(error.response.data.data);
         dispatch(loginFailedAction(errorMessage));
       });
   };
