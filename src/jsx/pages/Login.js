@@ -11,10 +11,10 @@ import {
 import loginbg from "../../images/pic1.png";
 
 function Login(props) {
-  const [username, setUsername] = useState("admin");
-  let errorsObj = { username: "", password: "" };
+  const [email, setEmail] = useState("demo@example.com");
+  let errorsObj = { email: "", password: "" };
   const [errors, setErrors] = useState(errorsObj);
-  const [password, setPassword] = useState("admin");
+  const [password, setPassword] = useState("123456");
 
   const dispatch = useDispatch();
 
@@ -22,8 +22,8 @@ function Login(props) {
     e.preventDefault();
     let error = false;
     const errorObj = { ...errorsObj };
-    if (username === "") {
-      errorObj.username = "username is Required";
+    if (email === "") {
+      errorObj.email = "Email is Required";
       error = true;
     }
     if (password === "") {
@@ -35,7 +35,7 @@ function Login(props) {
       return;
     }
     dispatch(loadingToggleAction(true));
-    dispatch(loginAction(username, password, props.history));
+    dispatch(loginAction(email, password, props.history));
   }
 
   return (
@@ -137,22 +137,20 @@ function Login(props) {
                       Sign in your account
                     </h3>
                     <div className="form-group mb-3">
-                      <label className="mb-1" htmlFor="val-username">
-                        <strong>User Name</strong>
+                      <label className="mb-1" htmlFor="val-email">
+                        <strong>Email</strong>
                       </label>
                       <div>
                         <input
-                          type="input"
+                          type="email"
                           className="form-control"
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
-                          placeholder="Type Your User Name"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="Type Your Email Address"
                         />
                       </div>
-                      {errors.username && (
-                        <div className="text-danger fs-12">
-                          {errors.username}
-                        </div>
+                      {errors.email && (
+                        <div className="text-danger fs-12">{errors.email}</div>
                       )}
                     </div>
                     <div className="form-group mb-3">
