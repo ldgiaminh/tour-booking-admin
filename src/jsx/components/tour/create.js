@@ -61,6 +61,20 @@ const TourCreate = (props) => {
 
   const [images, setImages] = useState();
 
+  useEffect(() => {
+    // Set the minimum value of the start date input to the current date
+    const today = new Date().toISOString().substr(0, 10);
+    const startDateInput = document.querySelector('input[name="startDate"]');
+    const endDateInput = document.querySelector('input[name="endDate"]');
+    const expiredDateInput = document.querySelector(
+      'input[name="expiredDate"]'
+    );
+
+    startDateInput.setAttribute("min", today);
+    endDateInput.setAttribute("min", today);
+    expiredDateInput.setAttribute("min", today);
+  }, []);
+
   const handleChange = (e) => {
     const value = e.target.value;
     setTours({
@@ -185,7 +199,7 @@ const TourCreate = (props) => {
                         name="tourName"
                         onChange={(e) => handleChange(e)}
                         value={tours.tourName}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -198,7 +212,7 @@ const TourCreate = (props) => {
                         name="tourDuration"
                         onChange={(e) => handleChange(e)}
                         value={tours.tourDuration}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -211,7 +225,7 @@ const TourCreate = (props) => {
                         name="tourCapacity"
                         onChange={(e) => handleChange(e)}
                         value={tours.tourCapacity}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -224,7 +238,7 @@ const TourCreate = (props) => {
                         name="departure"
                         onChange={(e) => handleChangeDetail(e)}
                         value={tourDetails.departure}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -237,7 +251,7 @@ const TourCreate = (props) => {
                         name="startDate"
                         onChange={(e) => handleChangeDetail(e)}
                         value={tourDetails.startDate}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -250,7 +264,7 @@ const TourCreate = (props) => {
                         name="endDate"
                         onChange={(e) => handleChangeDetail(e)}
                         value={tourDetails.endDate}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -263,7 +277,7 @@ const TourCreate = (props) => {
                         name="expiredDate"
                         onChange={(e) => handleChangeDetail(e)}
                         value={tourDetails.expiredDate}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -276,7 +290,7 @@ const TourCreate = (props) => {
                         name="tourDescription"
                         onChange={(e) => handleChangeDetail(e)}
                         value={tourDetails.tourDescription}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -289,7 +303,7 @@ const TourCreate = (props) => {
                         name="name"
                         onChange={(e) => handleChangeDes(e)}
                         value={des.name}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -301,7 +315,7 @@ const TourCreate = (props) => {
                         onChange={(e) => handleChangeDetail(e)}
                         value={tourDetails.transportationId}
                         name="transportationId"
-                        // required
+                        required
                       >
                         <option value="" disabled>
                           Choose Transportation
@@ -324,7 +338,7 @@ const TourCreate = (props) => {
                         name="description"
                         onChange={(e) => handleChangeDes(e)}
                         value={des.description}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -337,7 +351,7 @@ const TourCreate = (props) => {
                         name="region"
                         onChange={(e) => handleChangeDes(e)}
                         value={des.region}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -350,7 +364,7 @@ const TourCreate = (props) => {
                         name="priceAdults"
                         onChange={(e) => handleChangePrice(e)}
                         value={prices.priceAdults}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -363,7 +377,7 @@ const TourCreate = (props) => {
                         name="priceChildren"
                         onChange={(e) => handleChangePrice(e)}
                         value={prices.priceChildren}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -376,7 +390,7 @@ const TourCreate = (props) => {
                         name="priceInfants"
                         onChange={(e) => handleChangePrice(e)}
                         value={prices.priceInfants}
-                        // required
+                        required
                       />
                     </div>
                     <div className="form-group mb-3 col-md-6">
@@ -389,7 +403,7 @@ const TourCreate = (props) => {
                           //name="des"
                           multiple
                           className="form-file-input form-control"
-                          // required
+                          required
                           onChange={(e) => setImages(e.target.files)}
                         />
                       </div>

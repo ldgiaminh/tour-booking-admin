@@ -87,17 +87,18 @@ const Tour = (props) => {
     const fetchData = async () => {
       setLoading(true);
       dispatch(loadingToggleAction(true));
-
       try {
         const response = await TourService.getTours();
-        setTours(response.data.data);
-        setSearch(response.data.data);
+        const sortedTours = response.data.data.sort((a, b) => b.id - a.id);
+        setTours(sortedTours);
+        setSearch(sortedTours);
       } catch (error) {
         console.log(error);
       }
       setLoading(false);
       dispatch(loadingToggleAction(false));
     };
+
     fetchData();
   }, []);
 

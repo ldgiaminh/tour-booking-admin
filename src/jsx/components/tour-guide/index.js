@@ -88,8 +88,9 @@ const TourGuide = (props) => {
 
       try {
         const response = await TourGuideService.getTourGuides();
-        setTourGuides(response.data.data);
-        setSearch(response.data.data);
+        const sortedTours = response.data.data.sort((a, b) => b.id - a.id);
+        setTourGuides(sortedTours);
+        setSearch(sortedTours);
       } catch (error) {
         console.log(error);
       }
