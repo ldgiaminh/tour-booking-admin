@@ -48,6 +48,7 @@ const Markup = () => {
 
     //Tour
     { url: "tours", component: Tour },
+    { url: "tour-create", component: TourCreate },
     { url: ":id-tours-detail", component: TourDetail },
     { url: "tours-create", component: TourCreate },
 

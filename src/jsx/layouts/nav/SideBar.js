@@ -83,7 +83,7 @@ const SideBar = () => {
     tour = ["tours"],
     payment = ["payments"],
     user = ["users"],
-    tourguide = ["tour-guides"],
+    tourguide = ["tour-guides", "tour-guides-create"],
     transportation = [
       "transportations",
       "transportations-create",
@@ -104,6 +104,23 @@ const SideBar = () => {
     >
       <PerfectScrollbar className="deznav-scroll">
         <MM className="metismenu" id="menu">
+          <li className={`${deshBoard.includes(path) ? "mm-active" : ""}`}>
+            <Link className="has-arrow ai-icon" to="#">
+              <i className="flaticon-025-dashboard"></i>
+              <span className="nav-text">Dashboard</span>
+            </Link>
+            <ul>
+              <li>
+                <Link
+                  className={`${path === "" ? "mm-active" : "dashboard"}`}
+                  to="/dashboard"
+                >
+                  {" "}
+                  Dashboard Light
+                </Link>
+              </li>
+            </ul>
+          </li>
           <li className={`${booking.includes(path) ? "mm-active" : ""}`}>
             <Link to="bookings" className="ai-icon">
               <i className="flaticon-381-note"></i>
@@ -140,80 +157,7 @@ const SideBar = () => {
               <span className="nav-text">Transportation</span>
             </Link>
           </li>
-          <li className={`${deshBoard.includes(path) ? "mm-active" : ""}`}>
-            <Link className="has-arrow ai-icon" to="#">
-              <i className="flaticon-025-dashboard"></i>
-              <span className="nav-text">Dashboard</span>
-            </Link>
-            <ul>
-              <li>
-                <Link
-                  className={`${path === "" ? "mm-active" : "dashboard"}`}
-                  to="/dashboard"
-                >
-                  {" "}
-                  Dashboard Light
-                </Link>
-              </li>
-              {/* <li>
-                <Link
-                  className={`${path === "dashboard-dark" ? "mm-active" : ""}`}
-                  to="/dashboard-dark"
-                >
-                  Dashboard Dark
-                </Link>
-              </li>
 
-              <li>
-                <Link
-                  className={`${path === "guest-list" ? "mm-active" : ""}`}
-                  to="/guest-list"
-                >
-                  Guest
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={`${path === "guest-detail" ? "mm-active" : ""}`}
-                  to="/guest-detail"
-                >
-                  Guest Detail
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={`${path === "concierge" ? "mm-active" : ""}`}
-                  to="/concierge"
-                >
-                  Concierge
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={`${path === "room-list" ? "mm-active" : ""}`}
-                  to="/room-list"
-                >
-                  Room
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={`${path === "reviews" ? "mm-active" : ""}`}
-                  to="/reviews"
-                >
-                  Reviews
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className={`${path === "task" ? "mm-active" : ""}`}
-                  to="/task"
-                >
-                  Task
-                </Link>
-              </li> */}
-            </ul>
-          </li>
           {/* <li className={`${app.includes(path) ? "mm-active" : ""}`}>
             <Link className="has-arrow ai-icon" to="#">
               <i className="flaticon-050-info"></i>

@@ -1,8 +1,16 @@
 import axios from "axios";
 
 const TOUR_API_BASE_URL = "https://localhost:44389/api/Tours";
+const TOUR_DETAIL_API_BASE_URL = "https://localhost:44389/api/TourDetails";
+const DESTINATION_API_BASE_URL = "https://localhost:44389/api/Destinations";
+const TOUR_PRICE_API_BASE_URL = "https://localhost:44389/api/TourPrices";
 
 class TourService {
+  constructor() {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("jwtToken")}`;
+  }
   getTours() {
     return axios.get(TOUR_API_BASE_URL);
   }
@@ -13,6 +21,18 @@ class TourService {
 
   postTour(tg) {
     return axios.post(TOUR_API_BASE_URL, tg);
+  }
+
+  postTourDetail(tg) {
+    return axios.post(TOUR_DETAIL_API_BASE_URL, tg);
+  }
+
+  postDestination(tg) {
+    return axios.post(DESTINATION_API_BASE_URL, tg);
+  }
+
+  postTourPrice(tg) {
+    return axios.post(TOUR_PRICE_API_BASE_URL, tg);
   }
 
   updateTour(id, tg) {

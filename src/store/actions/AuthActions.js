@@ -37,18 +37,39 @@ export function logout(history) {
   };
 }
 
-export function loginAction(email, password, history) {
+// export function loginAction(userName, password, history) {
+//   return (dispatch) => {
+//     login(userName, password)
+//       .then((response) => {
+//         console.log(response.data.data);
+//         saveTokenInLocalStorage(response.data.data);
+//         runLogoutTimer(dispatch, response.data.data.expiresIn * 1000, history);
+//         dispatch(loginConfirmedAction(response.data.data));
+//         console.log(dispatch(loginConfirmedAction(response.data.data)));
+//         history.push("/bookings");
+//       })
+//       .catch((error) => {
+//         //console.log(error);
+//         const errorMessage = formatError(error.response.data.data);
+//         dispatch(loginFailedAction(errorMessage));
+//       });
+//   };
+// }
+
+export function loginAction(userName, password, history) {
   return (dispatch) => {
-    login(email, password)
+    login(userName, password)
       .then((response) => {
-        saveTokenInLocalStorage(response.data);
-        runLogoutTimer(dispatch, response.data.expiresIn * 1000, history);
-        dispatch(loginConfirmedAction(response.data));
+        const tokenDetails = response.data.data;
+        tokenDetails.expireDate = new Date(new Date().getTime() + 8600000);
+        saveTokenInLocalStorage(response.data.data);
+        runLogoutTimer(dispatch, 8600000, history);
+        dispatch(loginConfirmedAction(tokenDetails));
         history.push("/bookings");
       })
       .catch((error) => {
         //console.log(error);
-        const errorMessage = formatError(error.response.data);
+        const errorMessage = formatError(error.response.data.data);
         dispatch(loginFailedAction(errorMessage));
       });
   };

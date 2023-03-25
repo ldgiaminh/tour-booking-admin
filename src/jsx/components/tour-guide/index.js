@@ -145,12 +145,12 @@ const TourGuide = (props) => {
                   </span>
                 </div>
               </div>
-              {/* <Link
-                to={"/create-subject"}
+              <Link
+                to={"/tour-guides-create"}
                 className="btn btn-primary mb-xxl-0 mb-4"
               >
                 <i className="far fa-plus-square me-2"></i>Create New
-              </Link> */}
+              </Link>
             </div>
             <Tab.Content>
               <Tab.Pane eventKey="All">

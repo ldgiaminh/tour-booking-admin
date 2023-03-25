@@ -148,7 +148,7 @@ const Tour = (props) => {
                 </div>
               </div>
               <Link
-                to={"/create-subject"}
+                to={"/tour-create"}
                 className="btn btn-primary mb-xxl-0 mb-4"
               >
                 <i className="far fa-plus-square me-2"></i>Create New
@@ -172,15 +172,18 @@ const Tour = (props) => {
                       <tbody>
                         {jobData.current.map((tours) => {
                           return (
-                            <tr role="row" className="odd">
+                            <tr role="row" className="odd" key={tours.id}>
                               <td>
                                 <div className="guest-bx">
                                   <div
                                     id="carouselExampleControls"
                                     className="carousel slide me-3"
                                   >
-                                    {tours.tourDetails.map((image) => (
-                                      <div className="carousel-inner">
+                                    {tours.tourDetails.map((image, index) => (
+                                      <div
+                                        className="carousel-inner"
+                                        key={index}
+                                      >
                                         <GuestCarousel
                                           tourImage={image.destination}
                                         />
@@ -215,8 +218,8 @@ const Tour = (props) => {
                               </td>
                               <td>
                                 <div>
-                                  {tours.tourDetails.map((date) => (
-                                    <span className="font-w600">
+                                  {tours.tourDetails.map((date, index) => (
+                                    <span className="font-w600" key={index}>
                                       {new Date(
                                         date.expiredDate
                                       ).toLocaleDateString()}
@@ -226,13 +229,20 @@ const Tour = (props) => {
                               </td>
                               <td>
                                 <div>
-                                  {tours.tourGuides.map((guide) => (
-                                    <span className="fs-16">
-                                      {guide.tourGuideName}
+                                  {tours.tourGuides.length > 0 ? (
+                                    tours.tourGuides.map((guide) => (
+                                      <span className="fs-16" key={guide.id}>
+                                        {guide.tourGuideName}
+                                      </span>
+                                    ))
+                                  ) : (
+                                    <span className="fs-16 font-w600 text-warning">
+                                      Assign Tour Guide
                                     </span>
-                                  ))}
+                                  )}
                                 </div>
                               </td>
+
                               {/* <td>
                                 <DropdownBlog />
                               </td> */}

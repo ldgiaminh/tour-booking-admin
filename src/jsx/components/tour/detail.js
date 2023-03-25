@@ -4,7 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import TourService from "../../../services/api/tour/TourService";
 import Loader from "../../loader";
 import { loadingToggleAction } from "../../../store/actions/AuthActions";
-import BookingSlider from "./BookingSLider";
+import { Row, Col, Card, Carousel } from "react-bootstrap";
 
 const TourDetail = (props) => {
   const { id } = useParams();
@@ -36,11 +36,22 @@ const TourDetail = (props) => {
               <h4 className="card-title">Current Booking</h4>
             </div> */}
             <div className="card-body">
-              {/* {tours &&
-                tours.tourDetails &&
-                tours.tourDetails.map((image) => (
-                  <BookingSlider tourImage={image.destination} />
-                ))} */}
+              <Carousel>
+                {tours &&
+                  tours.tourDetails &&
+                  tours.tourDetails.map((des) =>
+                    des.destination.destinationImages.map((image, i) => (
+                      <Carousel.Item key={i}>
+                        <img
+                          src={image.image}
+                          className="d-block w-100 h-50"
+                          alt={`Slide ${i + 1}`}
+                        />
+                      </Carousel.Item>
+                    ))
+                  )}
+              </Carousel>
+
               <div className="d-flex mt-4 flex-wrap">
                 <h4 className="card-title me-auto">{tours.tourName}</h4>
                 {/* <h5 className="card-title">
@@ -90,8 +101,8 @@ const TourDetail = (props) => {
               </div>
               {tours &&
                 tours.tourDetails &&
-                tours.tourDetails.map((d) => (
-                  <>
+                tours.tourDetails.map((d, index) => (
+                  <React.Fragment key={index}>
                     <div className="me-5 mb-sm-0 mb-3">
                       <p className="mb-2">
                         <i className="far fa-calendar-minus scale3 me-3"></i>
@@ -101,22 +112,24 @@ const TourDetail = (props) => {
                         {new Date(d.startDate).toLocaleDateString()}
                       </h4>
                     </div>
-                    <div>
-                      <p className="mb-2">
-                        <i className="far fa-calendar-minus scale3 me-3"></i>
-                        Start Date
-                      </p>
-                      <h4 className="mb-0 card-title">
-                        {new Date(d.endDate).toLocaleDateString()}
-                      </h4>
+                    <div className="me-5 mb-sm-0 mb-3">
+                      <div>
+                        <p className="mb-2">
+                          <i className="far fa-calendar-minus scale3 me-3"></i>
+                          Start Date
+                        </p>
+                        <h4 className="mb-0 card-title">
+                          {new Date(d.endDate).toLocaleDateString()}
+                        </h4>
+                      </div>
                     </div>
-                  </>
+                  </React.Fragment>
                 ))}
-              <div className="mt-4">
+              <div className="mt-5">
                 <h4 className="card-title me-auto">Description</h4>
                 {tours.tourDetails &&
-                  tours.tourDetails.map((t) => (
-                    <span>{t.tourDescription}</span>
+                  tours.tourDetails.map((t, index) => (
+                    <span key={index}>{t.tourDescription}</span>
                   ))}
               </div>
             </div>
