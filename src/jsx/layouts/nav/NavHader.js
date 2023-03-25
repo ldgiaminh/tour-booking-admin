@@ -9,7 +9,7 @@ const NavHader = () => {
     useContext(ThemeContext);
   return (
     <div className="nav-header">
-      <Link to="/dashboard" className="brand-logo">
+      <Link to="/tours" className="brand-logo">
         {background.value === "dark" || navigationHader !== "color_1" ? (
           <Fragment>
             <svg

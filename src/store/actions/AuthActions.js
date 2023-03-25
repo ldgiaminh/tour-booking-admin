@@ -65,7 +65,7 @@ export function loginAction(userName, password, history) {
         saveTokenInLocalStorage(response.data.data);
         runLogoutTimer(dispatch, 8600000, history);
         dispatch(loginConfirmedAction(tokenDetails));
-        history.push("/bookings");
+        history.push("/tours");
       })
       .catch((error) => {
         //console.log(error);

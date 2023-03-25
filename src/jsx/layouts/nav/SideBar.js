@@ -104,7 +104,7 @@ const SideBar = () => {
     >
       <PerfectScrollbar className="deznav-scroll">
         <MM className="metismenu" id="menu">
-          <li className={`${deshBoard.includes(path) ? "mm-active" : ""}`}>
+          {/* <li className={`${deshBoard.includes(path) ? "mm-active" : ""}`}>
             <Link className="has-arrow ai-icon" to="#">
               <i className="flaticon-025-dashboard"></i>
               <span className="nav-text">Dashboard</span>
@@ -120,17 +120,17 @@ const SideBar = () => {
                 </Link>
               </li>
             </ul>
+          </li> */}
+          <li className={`${tour.includes(path) ? "mm-active" : ""}`}>
+            <Link to="tours" className="ai-icon">
+              <i className="flaticon-381-map-2"></i>
+              <span className="nav-text">Tour</span>
+            </Link>
           </li>
           <li className={`${booking.includes(path) ? "mm-active" : ""}`}>
             <Link to="bookings" className="ai-icon">
               <i className="flaticon-381-note"></i>
               <span className="nav-text">Booking</span>
-            </Link>
-          </li>
-          <li className={`${tour.includes(path) ? "mm-active" : ""}`}>
-            <Link to="tours" className="ai-icon">
-              <i className="flaticon-381-map-2"></i>
-              <span className="nav-text">Tour</span>
             </Link>
           </li>
           {/* <li className={`${payment.includes(path) ? "mm-active" : ""}`}>
@@ -708,7 +708,7 @@ const SideBar = () => {
             </ul>
           </li> */}
         </MM>
-        <div className="copyright">
+        <div className="copyright" style={{ display: "none" }}>
           <p>
             <strong></strong> © 2023 All Rights Reserved
           </p>
