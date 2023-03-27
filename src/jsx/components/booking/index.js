@@ -194,7 +194,7 @@ const Booking = (props) => {
                                 </td>
                                 <td>
                                   <div>
-                                    <h5>{pays.totalPrice}</h5>
+                                    <h5>{pays.totalPrice}đ</h5>
                                   </div>
                                 </td>
                                 <td>
@@ -223,7 +223,7 @@ const Booking = (props) => {
                                             : "text-danger font-w600"
                                         }
                                       >
-                                        {pay.status === 1
+                                        {pay.status === 0
                                           ? "PENDING"
                                           : pay.status === 2
                                           ? "FINISH"
