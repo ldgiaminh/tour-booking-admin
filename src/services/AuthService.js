@@ -32,7 +32,7 @@ export function login(userName, password) {
     userName,
     password,
   };
-  return axios.post(`https://localhost:44389/api/Auth/admin/Login`, postData);
+  return axios.post(`https://localhost:44389/api/auth/admin/login`, postData);
 }
 
 export function formatError(errorResponse) {
@@ -63,7 +63,7 @@ export function saveTokenInLocalStorage(tokenDetails) {
   // );
   tokenDetails.expireDate = new Date(new Date().getTime() + 86400000);
   localStorage.setItem("userDetails", JSON.stringify(tokenDetails));
-  localStorage.setItem("jwtToken", JSON.stringify(tokenDetails.token));
+  localStorage.setItem("jwtToken", tokenDetails.token);
 }
 
 export function runLogoutTimer(dispatch, timer, history) {

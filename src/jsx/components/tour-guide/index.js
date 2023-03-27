@@ -228,7 +228,17 @@ const TourGuide = (props) => {
                                 </td>
                                 <td>
                                   <div>
-                                    <h5>{trans.tour.tourName}</h5>
+                                    {trans.tours.length > 0 ? (
+                                      trans.tours.map((t) => (
+                                        <span className="fs-16" key={t.id}>
+                                          {t.tourName}
+                                        </span>
+                                      ))
+                                    ) : (
+                                      <span className="fs-16 font-w600 text-warning">
+                                        No Tour
+                                      </span>
+                                    )}
                                   </div>
                                 </td>
                                 {/* <td>

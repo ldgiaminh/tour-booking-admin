@@ -80,7 +80,7 @@ const SideBar = () => {
       "ecom-product-detail",
     ],
     booking = ["bookings"],
-    tour = ["tours"],
+    tour = ["tours", "tour-create"],
     payment = ["payments"],
     user = ["users"],
     tourguide = ["tour-guides", "tour-guides-create"],

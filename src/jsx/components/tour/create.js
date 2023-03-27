@@ -18,6 +18,7 @@ const TourCreate = (props) => {
   const dispatch = useDispatch();
 
   const [trans, setTrans] = useState([]);
+  const [guide, setGuide] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +28,20 @@ const TourCreate = (props) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await TourGuideService.getTourGuides();
+      setGuide(response.data.data);
+    };
+    fetchData();
+  }, []);
+
   const [tours, setTours] = useState({
     tourName: "",
     tourDuration: "",
     tourCapacity: "",
     status: 0,
+    tourGuideId: "",
   });
 
   const [tourDetails, setTourDetails] = useState({
@@ -201,6 +211,28 @@ const TourCreate = (props) => {
                         value={tours.tourName}
                         required
                       />
+                    </div>
+                    <div className="form-group mb-3 col-md-6">
+                      <label className="col-form-label col-form-label-lg">
+                        Tour Guide
+                      </label>
+                      <select
+                        className="form-control form-control-lg"
+                        onChange={(e) => handleChange(e)}
+                        value={tours.tourGuideId}
+                        name="tourGuideId"
+                        required
+                      >
+                        <option value="" disabled>
+                          Choose Tour Guide
+                        </option>
+                        {guide &&
+                          guide.map((t) => (
+                            <option value={t.id} key={t.id}>
+                              {t.tourGuideName}
+                            </option>
+                          ))}
+                      </select>
                     </div>
                     <div className="form-group mb-3 col-md-6">
                       <label className="col-form-label col-form-label-lg">

@@ -33,7 +33,7 @@ const TourGuideCreate = (props) => {
     tourGuideLanguageSpoken: "",
     tourGuideAva: "",
     tourGuideBio: "",
-    tourId: "",
+    tourId: 2,
   });
 
   const handleChange = (e) => {
@@ -154,7 +154,7 @@ const TourGuideCreate = (props) => {
                         required
                       />
                     </div>
-                    <div className="form-group mb-3 col-md-6">
+                    {/* <div className="form-group mb-3 col-md-6">
                       <label className="col-form-label col-form-label-lg">
                         Tour
                       </label>
@@ -175,7 +175,7 @@ const TourGuideCreate = (props) => {
                             </option>
                           ))}
                       </select>
-                    </div>
+                    </div> */}
                     <div className="form-group mb-3 col-md-6">
                       <label className="col-form-label col-form-label-lg">
                         Language Spoken

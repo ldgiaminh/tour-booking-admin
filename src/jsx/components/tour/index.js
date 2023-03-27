@@ -230,17 +230,9 @@ const Tour = (props) => {
                               </td>
                               <td>
                                 <div>
-                                  {tours.tourGuides.length > 0 ? (
-                                    tours.tourGuides.map((guide) => (
-                                      <span className="fs-16" key={guide.id}>
-                                        {guide.tourGuideName}
-                                      </span>
-                                    ))
-                                  ) : (
-                                    <span className="fs-16 font-w600 text-warning">
-                                      Assign Tour Guide
-                                    </span>
-                                  )}
+                                  <span className="fs-16">
+                                    {tours.tourGuide.tourGuideName}
+                                  </span>
                                 </div>
                               </td>
 

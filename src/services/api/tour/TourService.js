@@ -1,16 +1,16 @@
 import axios from "axios";
 
-const TOUR_API_BASE_URL = "https://localhost:44389/api/Tours";
-const TOUR_DETAIL_API_BASE_URL = "https://localhost:44389/api/TourDetails";
-const DESTINATION_API_BASE_URL = "https://localhost:44389/api/Destinations";
-const TOUR_PRICE_API_BASE_URL = "https://localhost:44389/api/TourPrices";
+const TOUR_API_BASE_URL = "https://localhost:44389/api/tours";
+const TOUR_DETAIL_API_BASE_URL = "https://localhost:44389/api/tourdetails";
+const DESTINATION_API_BASE_URL = "https://localhost:44389/api/destinations";
+const TOUR_PRICE_API_BASE_URL = "https://localhost:44389/api/tourprices";
 
 class TourService {
-  constructor() {
-    axios.defaults.headers.common[
-      "Authorization"
-    ] = `Bearer ${localStorage.getItem("jwtToken")}`;
-  }
+  // constructor() {
+  //   axios.defaults.headers.common[
+  //     "Authorization"
+  //   ] = `Bearer ${localStorage.getItem("jwtToken")}`;
+  // }
   getTours() {
     return axios.get(TOUR_API_BASE_URL);
   }
