@@ -165,7 +165,7 @@ const Tour = (props) => {
                         <th>Duration</th>
                         <th>Capacity</th>
                         <th>Expire Date</th>
-                        <th>Tour Guides</th>
+                        {/* <th>Tour Guides</th> */}
                         <th className="bg-none"></th>
                       </tr>
                     </thead>
@@ -228,13 +228,13 @@ const Tour = (props) => {
                                   ))}
                                 </div>
                               </td>
-                              <td>
+                              {/* <td>
                                 <div>
                                   <span className="fs-16">
                                     {tours.tourGuide.tourGuideName}
                                   </span>
                                 </div>
-                              </td>
+                              </td> */}
 
                               {/* <td>
                                 <DropdownBlog />

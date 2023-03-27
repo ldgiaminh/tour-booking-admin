@@ -40,7 +40,7 @@ const TourCreate = (props) => {
     tourName: "",
     tourDuration: "",
     tourCapacity: "",
-    status: 0,
+    status: 1,
     tourGuideId: "",
   });
 
@@ -138,6 +138,7 @@ const TourCreate = (props) => {
     TourService.postDestination(updateDes)
       .then((response) => {
         const desResponse = response.data.data;
+
         TourService.postTour(tours)
           .then((response) => {
             const tourResponse = response.data.data;
@@ -152,10 +153,9 @@ const TourCreate = (props) => {
               ...prices,
               tourId: tourId,
             };
+            console.log(tourResponse);
             TourService.postTourDetail(updateTourDetail)
-              .then((response) => {
-                console.log(response);
-              })
+              .then((response) => {})
               .catch((error) => {
                 console.log(error);
               });
