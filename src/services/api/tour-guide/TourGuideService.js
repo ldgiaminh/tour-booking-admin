@@ -3,11 +3,11 @@ import axios from "axios";
 const TOUR_GUIDE_API_BASE_URL = "https://localhost:44389/api/tourguides";
 
 class TourGuideService {
-  // constructor() {
-  //   axios.defaults.headers.common[
-  //     "Authorization"
-  //   ] = `Bearer ${localStorage.getItem("jwtToken")}`;
-  // }
+  constructor() {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("jwtToken")}`;
+  }
 
   getTourGuides() {
     return axios.get(TOUR_GUIDE_API_BASE_URL);

@@ -196,19 +196,20 @@ const TourDetail = (props) => {
                     <li className="list-group-item">
                       <span className="mb-0 title">Price Adults</span> :
                       <span className="text-black ms-2">
-                        {price.priceAdults}
+                        {price.priceAdults}đ
                       </span>
                     </li>
                     <li className="list-group-item">
                       <span className="mb-0 title">Price Children</span> :
                       <span className="text-black ms-2">
-                        {price.priceChildren}
+                        {price.priceChildren}đ
                       </span>
                     </li>
                     <li className="list-group-item">
                       <span className="mb-0 title">Price Infants</span> :
                       <span className="text-black ms-2">
                         {price.priceInfants === 0 ? "Free" : price.priceInfants}
+                        đ
                       </span>
                     </li>
                   </ul>

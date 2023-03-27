@@ -4,11 +4,11 @@ const TRANSPORTATION_API_BASE_URL =
   "https://localhost:44389/api/transportations";
 
 class TransportationService {
-  // constructor() {
-  //   axios.defaults.headers.common[
-  //     "Authorization"
-  //   ] = `Bearer ${localStorage.getItem("jwtToken")}`;
-  // }
+  constructor() {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("jwtToken")}`;
+  }
 
   getTransprotations() {
     return axios.get(TRANSPORTATION_API_BASE_URL);

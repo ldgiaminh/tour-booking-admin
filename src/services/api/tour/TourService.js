@@ -6,11 +6,11 @@ const DESTINATION_API_BASE_URL = "https://localhost:44389/api/destinations";
 const TOUR_PRICE_API_BASE_URL = "https://localhost:44389/api/tourprices";
 
 class TourService {
-  // constructor() {
-  //   axios.defaults.headers.common[
-  //     "Authorization"
-  //   ] = `Bearer ${localStorage.getItem("jwtToken")}`;
-  // }
+  constructor() {
+    axios.defaults.headers.common[
+      "Authorization"
+    ] = `Bearer ${localStorage.getItem("jwtToken")}`;
+  }
   getTours() {
     return axios.get(TOUR_API_BASE_URL);
   }
