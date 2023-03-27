@@ -120,45 +120,48 @@ const TourDetail = (props) => {
         </div>
         <div className="col-xl-3 col-xxl-4">
           <div className="card profile-card">
-            {tours &&
-              tours.tourGuides &&
-              tours.tourGuides.map((guide, index) => (
-                <div className="card-body" key={index}>
-                  <div className="d-flex align-items-center">
-                    <img
-                      src={guide.tourGuideAva}
-                      alt=""
-                      className="rounded profile-img me-4"
-                    />
-                    <div>
-                      {/* <h5 className="text-primary">#GS-2234</h5> */}
-                      <h4 className="mb-0">{guide.tourGuideName}</h4>
-                    </div>
-                  </div>
-                  <div className="row mt-4 pt-3">
-                    <div className="col-12">
-                      <Link
-                        to={`${guide.id}-tour-guides-detail`}
-                        className="btn btn-dark light btn-block"
-                      >
-                        View Profile
-                      </Link>
-                    </div>
-                  </div>
-                  <ul className="user-info-list">
-                    <li>
-                      <i className="fas fa-phone-volume"></i>
-                      <span>{guide.tourGuidePhone}</span>
-                    </li>
-                    <li>
-                      <i className="far fa-envelope"></i>
-                      <span className="overflow-hidden">
-                        {guide.tourGuideEmail}
-                      </span>
-                    </li>
-                  </ul>
+            <div className="card-body">
+              <div className="d-flex align-items-center">
+                <img
+                  src={tours.tourGuide && tours.tourGuide.tourGuideAva}
+                  alt=""
+                  className="rounded profile-img me-4"
+                />
+                <div>
+                  {/* <h5 className="text-primary">#GS-2234</h5> */}
+                  <h4 className="mb-0">
+                    {tours.tourGuide && tours.tourGuide.tourGuideName}
+                  </h4>
                 </div>
-              ))}
+              </div>
+              <div className="row mt-4 pt-3">
+                <div className="col-12">
+                  <Link
+                    to={`${
+                      tours.tourGuide && tours.tourGuide.id
+                    }-tour-guides-detail`}
+                    className="btn btn-dark light btn-block"
+                  >
+                    View Profile
+                  </Link>
+                </div>
+              </div>
+              <ul className="user-info-list">
+                <li>
+                  <i className="fas fa-phone-volume"></i>
+                  <span>
+                    {tours.tourGuide && tours.tourGuide.tourGuidePhone}
+                  </span>
+                </li>
+                <li>
+                  <i className="far fa-envelope"></i>
+                  <span className="overflow-hidden">
+                    {tours.tourGuide && tours.tourGuide.tourGuideEmail}
+                  </span>
+                </li>
+              </ul>
+            </div>
+
             <div className="card-body">
               <h4 className="text-align-center">More Information</h4>
               {tours &&
